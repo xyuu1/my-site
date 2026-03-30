@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>肖老师 - 个人主页</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00f0ff',
+                        secondary: '#7928ca',
+                        dark: '#0a0e17',
+                        light: '#f8fafc',
+                        accent: '#ff00ff'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 5px rgba(0, 240, 255, 0.5)' },
+                            '100%': { boxShadow: '0 0 20px rgba(0, 240, 255, 0.8), 0 0 30px rgba(121, 40, 202, 0.6)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-glow {
+                text-shadow: 0 0 10px rgba(0, 240, 255, 0.7), 0 0 20px rgba(0, 240, 255, 0.5);
+            }
+            .text-glow-purple {
+                text-shadow: 0 0 10px rgba(121, 40, 202, 0.7), 0 0 20px rgba(121, 40, 202, 0.5);
+            }
+            .bg-grid {
+                background-image: 
+                    linear-gradient(rgba(0, 240, 255, 0.1) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0, 240, 255, 0.1) 1px, transparent 1px);
+                background-size: 20px 20px;
+            }
+            .border-glow {
+                box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+            }
+            .transition-all-300 {
+                transition: all 300ms ease-in-out;
+            }
+        }
+    </style>
+</head>
+<body class="bg-dark text-light bg-grid">
+    <!-- 导航栏 -->
+    <nav class="bg-dark/80 backdrop-blur-md fixed w-full z-50 border-b border-primary/20">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-primary text-glow">肖老师</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#about" class="hover:text-primary transition-all-300">关于我</a>
+                <a href="#ai-programming" class="hover:text-primary transition-all-300">AI编程</a>
+                <a href="#teaching" class="hover:text-primary transition-all-300">教学成果</a>
+                <a href="#contact" class="hover:text-primary transition-all-300">联系方式</a>
+            </div>
+            <button class="md:hidden text-light">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 头部区域 -->
+    <header class="pt-24 pb-16 relative overflow-hidden">
+        <!-- 背景效果 -->
+        <div class="absolute top-0 left-0 w-full h-full">
+            <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full filter blur-3xl animate-pulse-slow"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-secondary/20 rounded-full filter blur-3xl animate-pulse-slow"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 text-glow">肖老师</h1>
+                <p class="text-xl text-primary mb-6">广东科学技术职业学院 | 商学院</p>
+                <p class="text-lg mb-4">商务数据分析与应用专业</p>
+                <p class="text-lg mb-8 text-gray-300">专注于AI编程与数据分析教学</p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="bg-primary text-dark px-6 py-2 rounded-lg hover:bg-primary/90 transition-all-300 font-medium">联系我</a>
+                    <a href="#ai-programming" class="border border-primary text-primary px-6 py-2 rounded-lg hover:bg-primary/10 transition-all-300">AI编程</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="w-64 h-64 rounded-full bg-primary/10 flex items-center justify-center animate-float border border-primary/30">
+                    <div class="w-56 h-56 rounded-full bg-secondary/10 flex items-center justify-center border border-secondary/30">
+                        <i class="fa fa-code text-6xl text-primary text-glow"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 关于我 -->
+    <section id="about" class="py-16 relative">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8 text-center text-glow">关于我</h2>
+            <div class="max-w-3xl mx-auto bg-dark/50 backdrop-blur-sm p-8 rounded-lg border border-primary/20">
+                <p class="text-lg mb-4">你好！我是肖老师，广东科学技术职业学院商学院商务数据分析与应用专业的教师。</p>
+                <p class="text-lg mb-4">我对AI编程和数据分析有着深厚的兴趣和丰富的经验，致力于将前沿的AI技术与商业数据分析相结合，培养学生的实践能力和创新思维。</p>
+                <p class="text-lg mb-4">在教学中，我注重理论与实践相结合，通过项目式学习和案例分析，帮助学生掌握实用的技能和方法。</p>
+                <p class="text-lg">我相信AI技术将深刻改变商业数据分析领域，希望通过我的教学，能够为学生打开通往未来科技世界的大门。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI编程 -->
+    <section id="ai-programming" class="py-16 bg-dark/80 relative">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8 text-center text-glow">AI编程</h2>
+            
+            <!-- AI技能 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <!-- 技能卡片1 -->
+                <div class="bg-dark/50 backdrop-blur-sm p-6 rounded-lg border border-primary/20 hover:border-primary/50 transition-all-300 animate-glow">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fa fa-robot"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-glow">机器学习</h3>
+                    <p class="text-gray-300">掌握机器学习算法和模型，能够应用于商业数据分析和预测。</p>
+                </div>
+                <!-- 技能卡片2 -->
+                <div class="bg-dark/50 backdrop-blur-sm p-6 rounded-lg border border-primary/20 hover:border-primary/50 transition-all-300 animate-glow" style="animation-delay: 0.2s;">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fa fa-brain"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-glow">深度学习</h3>
+                    <p class="text-gray-300">熟悉深度学习框架和模型，能够构建和训练神经网络模型。</p>
+                </div>
+                <!-- 技能卡片3 -->
+                <div class="bg-dark/50 backdrop-blur-sm p-6 rounded-lg border border-primary/20 hover:border-primary/50 transition-all-300 animate-glow" style="animation-delay: 0.4s;">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fa fa-comments"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-glow">自然语言处理</h3>
+                    <p class="text-gray-300">了解NLP技术和应用，能够开发智能对话系统和文本分析工具。</p>
+                </div>
+                <!-- 技能卡片4 -->
+                <div class="bg-dark/50 backdrop-blur-sm p-6 rounded-lg border border-primary/20 hover:border-primary/50 transition-all-300 animate-glow" style="animation-delay: 0.6s;">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fa fa-code"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-glow">Python编程</h3>
+                    <p class="text-gray-300">精通Python编程语言，能够开发AI应用和数据分析工具。</p>
+                </div>
+                <!-- 技能卡片5 -->
+                <div class="bg-dark/50 backdrop-blur-sm p-6 rounded-lg border border-primary/20 hover:border-primary/50 transition-all-300 animate-glow" style="animation-delay: 0.8s;">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fa fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-glow">数据可视化</h3>
+                    <p class="text-gray-300">掌握数据可视化技术，能够将复杂数据转化为直观的图表和仪表盘。</p>
+                </div>
+                <!-- 技能卡片6 -->
+                <div class="bg-dark/50 backdrop-blur-sm p-6 rounded-lg border border-primary/20 hover:border-primary/50 transition-all-300 animate-glow" style="animation-delay: 1s;">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fa fa-cloud"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-glow">AI部署</h3>
+                    <p class="text-gray-300">了解AI模型部署和优化，能够将模型部署到生产环境。</p>
+                </div>
+            </div>
+            
+            <!-- AI项目 -->
+            <h3 class="text-2xl font-bold mb-6 text-center text-glow">AI项目</h3>
+            <div class="max-w-4xl mx-auto space-y-6">
+                <!-- 项目1 -->
+                <div class="bg-dark/50 backdrop-blur-sm p-6 rounded-lg border border-primary/20">
+                    <h4 class="text-xl font-semibold mb-2 text-primary">智能商务数据分析系统</h4>
+                    <p class="text-gray-300 mb-4">使用机器学习算法对商业数据进行分析和预测，为企业决策提供支持。</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Python</span>
+                        <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">机器学习</span>
+                        <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">数据分析</span>
+                    </div>
+                </div>
+                <!-- 项目2 -->
+                <div class="bg-dark/50 backdrop-blur-sm p-6 rounded-lg border border-primary/20">
+                    <h4 class="text-xl font-semibold mb-2 text-primary">AI智能客服系统</h4>
+                    <p class="text-gray-300 mb-4">基于自然语言处理技术开发的智能客服系统，能够自动回答客户问题。</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Python</span>
+                        <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">NLP</span>
+                        <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">对话系统</span>
+                    </div>
+                </div>
+                <!-- 项目3 -->
+                <div class="bg-dark/50 backdrop-blur-sm p-6 rounded-lg border border-primary/20">
+                    <h4 class="text-xl font-semibold mb-2 text-primary">销售预测模型</h4>
+                    <p class="text-gray-300 mb-4">使用深度学习模型对销售数据进行分析和预测，提高销售预测的准确性。</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Python</span>
+                        <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">深度学习</span>
+                        <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">时间序列分析</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 教学成果 -->
+    <section id="teaching" class="py-16 relative">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8 text-center text-glow">教学成果</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- 教学理念 -->
+                <div class="bg-dark/50 backdrop-blur-sm p-6 rounded-lg border border-primary/20">
+                    <h3 class="text-xl font-semibold mb-4 text-primary">教学理念</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                            <span>理论与实践相结合，注重培养学生的实际操作能力</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                            <span>项目式学习，通过实际项目培养学生的解决问题能力</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                            <span>前沿技术引入课堂，让学生了解最新的AI和数据分析技术</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                            <span>个性化教学，根据学生的兴趣和能力进行针对性指导</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- 学生成果 -->
+                <div class="bg-dark/50 backdrop-blur-sm p-6 rounded-lg border border-primary/20">
+                    <h3 class="text-xl font-semibold mb-4 text-primary">学生成果</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fa fa-trophy text-primary mt-1 mr-3"></i>
+                            <span>学生在全国商务数据分析大赛中获得一等奖</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-trophy text-primary mt-1 mr-3"></i>
+                            <span>学生开发的AI项目在校园创新大赛中获奖</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-trophy text-primary mt-1 mr-3"></i>
+                            <span>多名学生成功就业于数据分析和AI相关岗位</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-trophy text-primary mt-1 mr-3"></i>
+                            <span>学生发表多篇关于AI和数据分析的学术论文</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section id="contact" class="py-16 bg-dark/80 relative">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8 text-center text-glow">联系方式</h2>
+            <div class="max-w-3xl mx-auto bg-dark/50 backdrop-blur-sm p-8 rounded-lg border border-primary/20">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-primary">联系信息</h3>
+                        <ul class="space-y-4 text-gray-300">
+                            <li class="flex items-center">
+                                <i class="fa fa-envelope text-primary mr-3"></i>
+                                <span>example@gdpt.edu.cn</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-phone text-primary mr-3"></i>
+                                <span>138****1234</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-map-marker text-primary mr-3"></i>
+                                <span>广东省珠海市金湾区广东科学技术职业学院</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-github text-primary mr-3"></i>
+                                <span>github.com/yourusername</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-primary">留言</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium mb-2 text-gray-300">姓名</label>
+                                <input type="text" class="w-full px-4 py-2 bg-dark border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-light">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium mb-2 text-gray-300">邮箱</label>
+                                <input type="email" class="w-full px-4 py-2 bg-dark border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-light">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium mb-2 text-gray-300">留言内容</label>
+                                <textarea class="w-full px-4 py-2 bg-dark border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-light" rows="4"></textarea>
+                            </div>
+                            <button type="submit" class="bg-primary text-dark px-6 py-2 rounded-lg hover:bg-primary/90 transition-all-300 font-medium">发送</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark border-t border-primary/20 py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-4">© 2026 肖老师个人主页</p>
+            <div class="flex justify-center space-x-4">
+                <a href="#" class="text-gray-400 hover:text-primary transition-all-300">
+                    <i class="fa fa-github text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-primary transition-all-300">
+                    <i class="fa fa-linkedin text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-primary transition-all-300">
+                    <i class="fa fa-weixin text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-primary transition-all-300">
+                    <i class="fa fa-weibo text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 回到顶部按钮 -->
+    <button id="backToTop" class="fixed bottom-6 right-6 bg-primary text-dark w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all-300">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // 回到顶部按钮
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 导航栏滚动效果
+        const nav = document.querySelector('nav');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                nav.classList.add('py-2');
+                nav.classList.remove('py-3');
+            } else {
+                nav.classList.add('py-3');
+                nav.classList.remove('py-2');
+            }
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
