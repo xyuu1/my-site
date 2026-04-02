@@ -41,7 +41,7 @@
 
 2. 创建GitHub仓库并推送
    ```bash
-   git remote add origin https://github.com/yourusername/your-repo-name.git
+   git remote add origin https://github.com/xyuu1/my-site.git
    git push -u origin main
    ```
 
